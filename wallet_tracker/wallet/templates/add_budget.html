@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Budget</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        function validateBudget() {
+            var maximumAmount = parseFloat('{{ form.maximum_amount.value }}');
+            var enteredAmount = parseFloat(document.getElementById('id_maximum_amount').value);
+            
+            if (enteredAmount > maximumAmount) {
+                alert("Hello, sorry you can't go beyond the budget you set which is $" + maximumAmount);
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar-left">
+        <!-- Navbar code here -->
+    </nav>
+
+    <div class="content">
+        <h1>Add Budget</h1>
+        <form method="post" onsubmit="return validateBudget();">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Budget</button>
+        </form>
+    </div>
+</body>
+</html>

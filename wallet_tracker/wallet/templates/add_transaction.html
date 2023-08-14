@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Transaction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{% url 'home' %}" class="navbar-link">
+            <i class="fas fa-home"></i><span class="icon-space">Home</span>
+        </a>
+        <a href="{% url 'add_transaction' %}" class="navbar-link">
+            <i class="fas fa-plus-circle"></i><span class="icon-space">Add Transaction</span>
+        </a>
+        <a href="{% url 'transaction_list' %}" class="navbar-link">
+            <i class="fas fa-list"></i><span class="icon-space">View Transaction List</span>
+        </a>
+        <a href="{% url 'manage_budget' %}" class="navbar-link"><i class="fas fa-chart-bar"></i>Manage Budgets</a>
+    </nav>
+ <div class="container">
+<h1>Add Transaction</h1>
+<form method="post" class="transaction-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-transparent">Add Transaction</button>
+</form>
+</div>
+</body>
+</html>

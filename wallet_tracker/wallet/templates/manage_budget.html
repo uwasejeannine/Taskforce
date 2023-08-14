@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Budgets</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar-left">
+        <nav class="navbar">
+            <!-- Nav links here -->
+        </nav>
+    </nav>
+
+    <div class="content">
+        <h1>Manage Budgets</h1>
+        <ul>
+            {% for account in accounts %}
+                <li>{{ account.name }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_budget' %}" class="navbar-link"><i class="fas fa-wallet"></i>Add Budget</a>
+    </div>
+</body>
+</html>

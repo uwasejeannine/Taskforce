@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar-left">
+        <nav class="navbar">
+            <!-- Nav links here -->
+        </nav>
+    </nav>
+
+    <div class="content">
+        <h1>Transaction Form</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Transaction</button>
+            {% if exceeded %}
+                <p>Sorry, the price has exceeded the budget.</p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
