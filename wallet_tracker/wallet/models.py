@@ -23,7 +23,7 @@ class Transaction(models.Model):
 
 class Budget(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)  
     maximum_amount = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):

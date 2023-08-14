@@ -48,7 +48,7 @@
 
     <div class="container">
         <h1>Manage Budgets</h1>
-        <ul class="budget-list" id="budget-list">
+        <ul class="transaction-list" id="budget-list">
             {% for budget in budgets %}
             <li class="budget-item">{{ budget.account }} - $<span class="budget-amount">{{ budget.maximum_amount }}</span></li>
             {% endfor %}
