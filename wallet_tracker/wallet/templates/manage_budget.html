@@ -5,6 +5,30 @@
     <title>Manage Budgets</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        function validateBudget() {
+            var budgetList = document.getElementById('budget-list');
+            var budgetItems = budgetList.getElementsByClassName('budget-item');
+
+            var enteredAmount = parseFloat(document.getElementById('id_maximum_amount').value);
+
+            for (var i = 0; i < budgetItems.length; i++) {
+                var budgetAmount = parseFloat(budgetItems[i].querySelector('.budget-amount').innerText.substring(1));
+
+                if (enteredAmount === budgetAmount) {
+                    alert("You cannot add a budget with the same amount that already exists.");
+                    return false;
+                }
+
+                if (enteredAmount > budgetAmount) {
+                    alert("You cannot exceed the budget amount.");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar-left">
@@ -19,15 +43,16 @@
                 <i class="fas fa-list"></i><span class="icon-space">View Transaction List</span>
             </a>
             <a href="{% url 'manage_budget' %}" class="navbar-link"><i class="fas fa-chart-bar"></i>Manage Budgets</a>
-        </nav>    </nav>
+        </nav>
+    </nav>
 
     <div class="container">
         <h1>Manage Budgets</h1>
-        {% for budget in budgets %}
-        <ul class="transaction-list">
-            <li >{{ budget.account }} - ${{ budget.maximum_amount }}</li>
-        {% endfor %}
-    </ul>
+        <ul class="budget-list" id="budget-list">
+            {% for budget in budgets %}
+            <li class="budget-item">{{ budget.account }} - $<span class="budget-amount">{{ budget.maximum_amount }}</span></li>
+            {% endfor %}
+        </ul>
         <a style="color: #1e90ff;" href="{% url 'add_budget' %}" class="navbar-link"><i class="fas fa-wallet"></i>Add Budget</a>
     </div>
 </body>
