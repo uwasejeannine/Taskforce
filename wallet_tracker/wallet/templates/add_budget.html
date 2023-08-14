@@ -21,16 +21,29 @@
 </head>
 <body>
     <nav class="navbar-left">
-        <!-- Navbar code here -->
-    </nav>
+        <nav class="navbar">
+            <a href="{% url 'home' %}" class="navbar-link">
+                <i class="fas fa-home"></i><span class="icon-space">Home</span>
+            </a>
+            <a href="{% url 'add_transaction' %}" class="navbar-link">
+                <i class="fas fa-plus-circle"></i><span class="icon-space">Add Transaction</span>
+            </a>
+            <a href="{% url 'transaction_list' %}" class="navbar-link">
+                <i class="fas fa-list"></i><span class="icon-space">View Transaction List</span>
+            </a>
+            <a href="{% url 'manage_budget' %}" class="navbar-link"><i class="fas fa-chart-bar"></i>Manage Budgets</a>
+        </nav>    </nav>
 
-    <div class="content">
-        <h1>Add Budget</h1>
-        <form method="post" onsubmit="return validateBudget();">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Add Budget</button>
-        </form>
-    </div>
+        <div class="container">
+            <h1>Add Budget</h1>
+            {% if message %}
+            <div class="success-message">{{ message }}</div>
+            {% endif %}
+            <form method="post" onsubmit="return validateBudget();" class="transaction-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Add Budget</button>
+            </form>
+        </div>
 </body>
 </html>

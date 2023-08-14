@@ -9,18 +9,26 @@
 <body>
     <nav class="navbar-left">
         <nav class="navbar">
-            <!-- Nav links here -->
-        </nav>
-    </nav>
+            <a href="{% url 'home' %}" class="navbar-link">
+                <i class="fas fa-home"></i><span class="icon-space">Home</span>
+            </a>
+            <a href="{% url 'add_transaction' %}" class="navbar-link">
+                <i class="fas fa-plus-circle"></i><span class="icon-space">Add Transaction</span>
+            </a>
+            <a href="{% url 'transaction_list' %}" class="navbar-link">
+                <i class="fas fa-list"></i><span class="icon-space">View Transaction List</span>
+            </a>
+            <a href="{% url 'manage_budget' %}" class="navbar-link"><i class="fas fa-chart-bar"></i>Manage Budgets</a>
+        </nav>    </nav>
 
-    <div class="content">
+    <div class="container">
         <h1>Manage Budgets</h1>
-        <ul>
-            {% for account in accounts %}
-                <li>{{ account.name }}</li>
-            {% endfor %}
-        </ul>
-        <a href="{% url 'add_budget' %}" class="navbar-link"><i class="fas fa-wallet"></i>Add Budget</a>
+        {% for budget in budgets %}
+        <ul class="transaction-list">
+            <li >{{ budget.account }} - ${{ budget.maximum_amount }}</li>
+        {% endfor %}
+    </ul>
+        <a style="color: #1e90ff;" href="{% url 'add_budget' %}" class="navbar-link"><i class="fas fa-wallet"></i>Add Budget</a>
     </div>
 </body>
 </html>

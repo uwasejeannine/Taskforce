@@ -27,14 +27,20 @@ def manage_budget(request):
     return render(request, 'manage_budget.html', {'budgets': budgets})
 
 def add_budget(request):
+    message = None
     if request.method == 'POST':
         form = BudgetForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('manage_budget')
+            message = f"Budget for {form.cleaned_data['account']} added successfully!"
+            form = BudgetForm()
     else:
         form = BudgetForm()
-    return render(request, 'add_budget.html', {'form': form})
+    return render(request, 'add_budget.html', {'form': form, 'message': message})
+def budget_list(request):
+    budgets = Budget.objects.all()
+    return render(request, 'budget_list.html', {'budgets': budgets})
+
 
 def budget_report(request):
     budgets = Budget.objects.all()
