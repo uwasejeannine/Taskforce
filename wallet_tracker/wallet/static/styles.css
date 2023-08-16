@@ -12,6 +12,7 @@ body {
 /* Headings */
 h1, h2, h3 {
     color: blue;
+    
 }
 
 /* Links */
@@ -22,28 +23,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: blue;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #1e90ff; /* Darker blue on hover */
-}
-
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 50px auto 0; 
-    padding: 20px;
-    text-align: center;
 }
 
 .navbar {
@@ -60,75 +39,42 @@ a:hover {
     border-bottom: none; /* Remove underline */
 }
 
-/* Style the navigation links on hover */
 .navbar-link:hover {
-    background-color: #1e90ff; /* Darker blue on hover */
-    text-decoration: none; /* Remove underline on hover */
+    background-color: #1e90ff; 
+    text-decoration: none; 
 }
-.transaction-form {
-    max-width: 500px; /* Set a preferred width for the form */
+/* Style the form container */
+.container {
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    border-radius: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.transaction-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: blue;
-}
-
-.transaction-form input[type="text"],
-.transaction-form input[type="number"],
-.transaction-form select {
+/* Style form inputs */
+.form-input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Transparent Button */
-.btn-transparent {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: transparent;
-    color: blue;
-    border: 2px solid blue;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.btn-transparent:hover {
-    background-color: blue;
-    color: white;
-}
-
-.transaction-list {
-    list-style: none;
-    padding: 0;
-}
-
-.transaction-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Style the submit button */
+.btn-submit {
+    width: 100%;
     padding: 10px;
-    background-color: white;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.transaction-list li:nth-child(even) {
-    background-color: #f5f5f5;  
-}
-
-#navbar-link{
-    color: #1e90ff;
-
+.btn-submit:hover {
+    background-color: blue;
 }

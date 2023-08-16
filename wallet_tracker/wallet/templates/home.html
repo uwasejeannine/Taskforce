@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>Expense Tracker</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
 </head>
 <body>
+    
     <nav class="navbar">
         <a href="{% url 'home' %}" class="navbar-link">
             <i class="fas fa-home"></i><span class="icon-space">Home</span>
@@ -15,16 +15,38 @@
         <a href="{% url 'add_transaction' %}" class="navbar-link">
             <i class="fas fa-plus-circle"></i><span class="icon-space">Add Transaction</span>
         </a>
-        <a href="{% url 'transaction_list' %}" class="navbar-link">
-            <i class="fas fa-list"></i><span class="icon-space">View Transaction List</span>
+        <a href="{% url 'set_budget' %}" class="navbar-link">
+            <i class="fas fa-dollar-sign"></i><span class="icon-space">Set Budget</span>
         </a>
-        <a href="{% url 'manage_budget' %}" class="navbar-link"><i class="fas fa-chart-bar"></i>Manage Budgets</a>
+        <a href="{% url 'generate_report' %}" class="navbar-link">
+            <i class="fas fa-chart-bar"></i><span class="icon-space">Generate Report</span>
+        </a>
     </nav>
-    <div class="container">
-        <h1>Welcome to Your Wallet App!</h1>
-        <p>
-            Hello Eric! Get ready to conquer your finances like never before with us. 
-            Seamlessly track transactions, set budgets, and gain financial clarity in a way that empowers you.        </p>
-    </div>
+    <section class="middle-content">
+        <div class="container-center">
+            <div class="container-main">
+                <h1>Expense Tracker</h1>
+                <h2>Total Expenses: {{ total_expenses }}</h2>
+                <h2>Total Budgets: {{ total_budgets }}</h2>
+        
+                <h3>Transactions:</h3>
+                <ul class="list-group">
+                    {% for transaction in transactions %}
+                    <li class="list-group-item">
+                        {{ transaction.account_type }} - {{ transaction.amount }} - {{ transaction.category }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    
 </body>
 </html>
