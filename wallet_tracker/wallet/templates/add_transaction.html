@@ -4,9 +4,63 @@
 <html>
 <head>
     <title>Add Transaction</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      
+      h1 {
+        margin-bottom: 20px;
+      }
+      
+      form {
+        text-align: center;
+        width: 50%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      
+      .form-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      select.form-input {
+        height: 40px;
+      }
+      
+      .btn-submit {
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      .btn-submit:hover {
+        background-color: darkblue;
+      }
+      
+    </style>
 <body>
     <nav class="navbar">
         <a href="{% url 'home' %}" class="navbar-link">

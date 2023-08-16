@@ -8,26 +8,31 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="{% url 'home' %}" class="navbar-link">
-            <i class="fas fa-home"></i><span class="icon-space">Home</span>
-        </a>
-        <a href="{% url 'add_transaction' %}" class="navbar-link">
-            <i class="fas fa-plus-circle"></i><span class="icon-space">Add Transaction</span>
-        </a>
-        <a href="{% url 'set_budget' %}" class="navbar-link">
-            <i class="fas fa-dollar-sign"></i><span class="icon-space">Set Budget</span>
-        </a>
-        <a href="{% url 'generate_report' %}" class="navbar-link">
-            <i class="fas fa-chart-bar"></i><span class="icon-space">Generate Report</span>
-        </a>
+        <nav class="navbar">
+            <a href="{% url 'home' %}" class="navbar-link">
+                <i class="fas fa-home"></i><span class="icon-space">Home</span>
+            </a>
+            <a href="{% url 'add_transaction' %}" class="navbar-link">
+                <i class="fas fa-plus-circle"></i><span class="icon-space">Add Transaction</span>
+            </a>
+            <a href="{% url 'set_budget' %}" class="navbar-link">
+                <i class="fas fa-dollar-sign"></i><span class="icon-space">Set Budget</span>
+            </a>
+            <a href="{% url 'generate_report' %}" class="navbar-link">
+                <i class="fas fa-chart-bar"></i><span class="icon-space">Generate Report</span>
+            </a>
+        </nav>
     </nav>
     <h1>Generate Report</h1>
     <form method="post">
         {% csrf_token %}
+        
         <label for="start_date">Start Date:</label>
         <input type="date" name="start_date"><br>
         <label for="end_date">End Date:</label>
         <input type="date" name="end_date"><br>
+        <label for="message_type">Message Type:</label>
+        <input type="text" name="message_type"><br>
         <input type="submit" value="Generate Report">
     </form>
     <h3>Transactions:</h3>

@@ -6,6 +6,54 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+<style>.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  form {
+    text-align: center;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  input[type="submit"] {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: darkblue;
+  }
+  </style>
 <body>
     <nav class="navbar">
         <a href="{% url 'home' %}" class="navbar-link">
@@ -21,6 +69,7 @@
             <i class="fas fa-chart-bar"></i><span class="icon-space">Generate Report</span>
         </a>
     </nav>
+    <div class="container">
     <h1>Set Budget</h1>
     <form method="post">
         {% csrf_token %}
@@ -28,5 +77,6 @@
         <input type="text" name="limit"><br>
         <input type="submit" value="Set Budget">
     </form>
+</div>
 </body>
 </html>

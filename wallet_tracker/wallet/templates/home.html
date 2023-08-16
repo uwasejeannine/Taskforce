@@ -6,6 +6,38 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+<style>
+    .table{
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        width: 80%;
+        box-shadow: 0 0 20px blue;
+        margin-left: 10%;
+        margin-top: 3%;
+    }
+    th{
+        background-color: #f8f9fa;
+        color: #1e90ff;
+        text-align: center;
+        padding: 12px 15px;
+    }
+    td{
+        padding: 20px 30px;
+        text-align: center;
+    }
+    tbody{
+        border-bottom: 1px solid #1e90ff;
+    }
+    tbody:last-of-type{
+        border-bottom: 2px solid #1e90ff;
+
+    }
+    h1,h2,h3,p{
+        text-align: center;  
+    }
+</style>
 <body>
     
     <nav class="navbar">
@@ -25,18 +57,29 @@
     <section class="middle-content">
         <div class="container-center">
             <div class="container-main">
-                <h1>Expense Tracker</h1>
-                <h2>Total Expenses: {{ total_expenses }}</h2>
-                <h2>Total Budgets: {{ total_budgets }}</h2>
-        
+                <h1>Welcome to Your Wallet App!</h1>
                 <h3>Transactions:</h3>
-                <ul class="list-group">
-                    {% for transaction in transactions %}
-                    <li class="list-group-item">
-                        {{ transaction.account_type }} - {{ transaction.amount }} - {{ transaction.category }}
-                    </li>
-                    {% endfor %}
-                </ul>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date and Time</th>
+                            <th>Account Type</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for transaction in transactions %}
+                        <tr>
+                            <td>{{ transaction.timestamp }}</td>
+                            <td>{{ transaction.account_type }}</td>
+                            <td>{{ transaction.amount }}</td>
+                            <td>{{ transaction.category }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h2>Total Expenses: {{ total_expenses }} <span> && </span> Total Budgets: {{ total_budgets }}</h2>
                 {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}

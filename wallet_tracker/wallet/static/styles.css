@@ -1,4 +1,4 @@
-/* static/styles.css */
+static/styles.css
 
 /* Body */
 body {
@@ -43,38 +43,5 @@ a:hover {
     background-color: #1e90ff; 
     text-decoration: none; 
 }
-/* Style the form container */
-.container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-/* Style form inputs */
-.form-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
-/* Style the submit button */
-.btn-submit {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: transparent;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-submit:hover {
-    background-color: blue;
-}

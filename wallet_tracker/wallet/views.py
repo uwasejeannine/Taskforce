@@ -1,56 +1,3 @@
-# # wallet/views.py
-# from django.shortcuts import render, redirect
-# from .models import Transaction, Budget
-# from .forms import TransactionForm, BudgetForm
-
-
-
-# def home(request):
-#     return render(request, 'home.html')
-
-# def transaction_list(request):
-#     transactions = Transaction.objects.all()
-#     return render(request, 'transaction_list.html', {'transactions': transactions})
-
-# def add_transaction(request):
-#     if request.method == 'POST':
-#         form = TransactionForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('transaction_list')
-#     else:
-#         form = TransactionForm()
-#     return render(request, 'add_transaction.html', {'form': form})
-
-# def manage_budget(request):
-#     budgets = Budget.objects.all()
-#     return render(request, 'manage_budget.html', {'budgets': budgets})
-
-# def add_budget(request):
-#     message = None
-#     if request.method == 'POST':
-#         form = BudgetForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             message = f"Budget for {form.cleaned_data['account']} added successfully!"
-#             form = BudgetForm()
-#     else:
-#         form = BudgetForm()
-#     return render(request, 'add_budget.html', {'form': form, 'message': message})
-# def budget_list(request):
-#     budgets = Budget.objects.all()
-#     return render(request, 'budget_list.html', {'budgets': budgets})
-
-
-# def budget_report(request):
-#     budgets = Budget.objects.all()
-#     budget_totals = []
-#     for budget in budgets:
-#         spent = Transaction.objects.filter(category=budget.category).aggregate(Sum('amount'))['amount__sum'] or 0
-#         remaining = budget.amount - spent
-#         budget_totals.append({'budget': budget, 'spent': spent, 'remaining': remaining})
-#     return render(request, 'budget_report.html', {'budget_totals': budget_totals})
-
 
 from django.shortcuts import render, redirect
 from .models import Transaction, Budget,Subcategory
@@ -69,7 +16,7 @@ def home(request):
 
     # Check if total expenses exceed total budgets
     if total_expenses > total_budgets:
-        messages.warning(request, "Oops!!! Dear client, the money you need for your expenses is above your budget.")
+        messages.warning(request, "N:B: Oops!!! Dear client, the money you need for your expenses is above your budget.")
 
     return render(request, 'home.html', {'transactions': transactions, 'total_expenses': total_expenses, 'total_budgets': total_budgets})
 
