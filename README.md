@@ -1,7 +1,6 @@
-**THE PROJECT FUNCTIONALITY
-**
-Transaction Tracking:
+**THE PROJECT FUNCTIONALITY**
 
+Transaction Tracking:
 Eric will be able to add incoming and outgoing transactions from various accounts.
 They can select the account type (bank account, mobile money, etc.) and amount for each transaction.
 They can associate transactions with specific categories and subcategories.
@@ -25,16 +24,17 @@ Transaction Visualization:
 
 Eric can view transaction summaries in a visualized manner.
 
-**ADMIN INTERFACE 
-**The Django admin interface allows administrators to manage data efficiently.
+**ADMIN INTERFACE**
+
+The Django admin interface allows administrators to manage data efficiently.
 
 Admins can add, edit, and delete records from the Category, Subcategory, Transaction, and Budget models.
 Frontend Views:
 The frontend provides views for adding transactions, setting budgets, generating reports, and displaying transaction summaries.
 Users can interact with these views through forms and links.
 
-**HOW TO START A PROJECT
-**
+**HOW TO START A PROJECT**
+
 Installation
 I have created a GitHub repo and cloned the repository to my local machine.
 I then navigated to the repo using  a command-line interface (cd command).
