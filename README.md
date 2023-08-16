@@ -4,19 +4,19 @@ Transaction Tracking:
 Eric will be able to add incoming and outgoing transactions from various accounts.
 They can select the account type (bank account, mobile money, etc.) and amount for each transaction.
 They can associate transactions with specific categories and subcategories.
-Budget Management:
 
+**Budget Management**
 Eric will be able to set budget limits.
 The application will calculate and compare the total expenses to the set budget.
-If costs exceed the budget, the application will notify the user.
+If costs exceed the budget, the application will notify him.
 
-Category and Subcategory Management:
+**Category and Subcategory Management:**
 Eric will be able to define categories and subcategories for better organization of expenses.
 Subcategories are linked to parent categories.
-Expense Categorization:
 
-Report Generation:
+Expense Categorization: Will be able to select different categories he wants to spend money to
 
+**Report Generation:**
 Eric will generate reports by specifying a start and end date.
 The application will display transactions within the selected date range.
 It will calculate and display the total expenses for that period.
@@ -35,11 +35,13 @@ Users can interact with these views through forms and links.
 
 **HOW TO START A PROJECT**
 
-Installation
+**Installation**
 I have created a GitHub repo and cloned the repository to my local machine.
 I then navigated to the repo using  a command-line interface (cd command).
 Pip install django (To insall all the nesecary packages)
-Backend Setup
+
+**Backend Setup**
+
 I have created a new project using this command(in window)
 django-admin startproject wallet_tracker
 I created the app that i will put all the files into
