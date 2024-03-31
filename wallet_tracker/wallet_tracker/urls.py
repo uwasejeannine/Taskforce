@@ -23,7 +23,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("wallet.urls")),
+    path("wallet", include("wallet.urls")),
+        path('', include('authentication.urls')),  # Include the 'authentication' app's URLs
+
 
 ]
 

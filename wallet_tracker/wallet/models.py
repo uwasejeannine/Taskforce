@@ -25,3 +25,4 @@ class Transaction(models.Model):
         return f"{self.account_type} - {self.amount} - {self.category}"
 class Budget(models.Model):
     limit = models.DecimalField(max_digits=10, decimal_places=2)
+

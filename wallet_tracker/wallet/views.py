@@ -14,9 +14,10 @@ def home(request):
     budgets = Budget.objects.all()
     total_budgets = budgets.aggregate(Sum('limit'))['limit__sum']
 
-    # Check if total expenses exceed total budgets
-    if total_expenses > total_budgets:
-        messages.warning(request, "N:B: Oops!!! Dear client, the money you need for your expenses is above your budget.")
+    if total_expenses is not None and total_budgets is not None:
+        if total_expenses > total_budgets:
+           messages.warning(request, "Oops!!! Dear client, the money you need for your expenses is above your budget.")
+
 
     return render(request, 'home.html', {'transactions': transactions, 'total_expenses': total_expenses, 'total_budgets': total_budgets})
 
